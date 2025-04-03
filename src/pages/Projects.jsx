@@ -6,27 +6,26 @@ import { useEffect } from "react"
 const projects = [
   {
     title: "Travix",
-    description: "A travel booking website featuring a user-friendly and responsive design that allows users to book travel with their preferred mode of transport. Implemented two-factor authentication, real-time price updates, and automated email reminders for incomplete bookings.",
+    description: "A travel booking website with user-friendly interface, featuring two-factor authentication and real-time price updates. Built with PostgreSQL for secure database management and travel booking APIs.",
     image: "/travix.png",
     tags: ["EJS", "TailwindCSS", "Git", "Github", "Google-OAuth", "PostgreSQL", "Supabase"],
     link: "https://travix.vercel.app/",
     github: "https://github.com/VarunRewadi/travix"
   },
   {
-    title: "Tasks To-Do Application",
-    description: "A Java-based task management application using OOP and Java AWT. Features include adding, prioritizing, removing, and marking tasks as completed. Includes an automated notification system with pop-up reminders at scheduled times.",
-    image: "/todo.png",
-    tags: ["Java", "OOP", "Java AWT"],
-    link: "https://todo.example.com",
-    github: "https://github.com/username/todo"
+    title: "Image Processing Application",
+    description: "A GUI-based application for image editing with features like grayscale, blur, and pencil sketch filters. Includes real-time effects and image capture functionality using OpenCV and Tkinter.",
+    image: "/image-processing.png",
+    tags: ["Python", "OpenCV", "Tkinter", "PIL", "NumPy", "GUI Programming"],
+    github: "https://github.com/VarunRewadi/image-processing"
   },
   {
-    title: "Social Conclave Website",
-    description: "The official website of Social Conclave MPSTME. Made user-friendly and responsive to different devices for better user experience. Implemented modern design principles and smooth interactions.",
-    image: "/social-conclave.png",
-    tags: ["ReactJS", "TailwindCSS", "Git", "Github"],
-    link: "https://socialconclave.example.com",
-    github: "https://github.com/username/social-conclave"
+    title: "IETE Website",
+    description: "Official website for IETE-SF MPSTME built using no-code tools. Features an intuitive, responsive design focused on organization representation and user experience.",
+    image: "/iete.png",
+    tags: ["Figma", "Wix/Wix-Studio", "UI/UX Design"],
+    link: "https://ietempstme.com",
+  
   }
 ]
 
@@ -39,15 +38,15 @@ export default function Projects() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-black p-4 md:p-6 lg:p-8">
+    <div className="min-h-screen bg-background p-4 md:p-6 lg:p-8">
       <div className="max-w-6xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <Link to="/" className="inline-flex items-center text-zinc-400 hover:text-white mb-8 transition-colors">
+          <Link to="/" className="inline-flex items-center text-muted-foreground hover:text-foreground mb-8 transition-colors">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to home
           </Link>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-8 font-nebulica">Projects</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-primary mb-8 font-nebulica">Projects</h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
@@ -56,43 +55,47 @@ export default function Projects() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-zinc-900 rounded-3xl overflow-hidden"
+                className="bg-card rounded-3xl overflow-hidden border border-border"
               >
                 <div className="relative aspect-video">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain bg-accent p-4"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                  <div className="absolute inset-0 bg-background/50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
                     <div className="flex space-x-4">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white hover:text-zinc-300 transition-colors"
-                      >
-                        <Github className="h-6 w-6" />
-                      </a>
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white hover:text-zinc-300 transition-colors"
-                      >
-                        <ExternalLink className="h-6 w-6" />
-                      </a>
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 bg-card rounded-full text-foreground hover:text-muted-foreground transition-colors"
+                        >
+                          <Github className="h-6 w-6" />
+                        </a>
+                      )}
+                      {project.link && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 bg-card rounded-full text-foreground hover:text-muted-foreground transition-colors"
+                        >
+                          <ExternalLink className="h-6 w-6" />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h2 className="text-xl font-semibold text-white mb-2 font-nebulica">{project.title}</h2>
-                  <p className="text-zinc-300 mb-4 font-nebulica">{project.description}</p>
+                  <h2 className="text-xl font-semibold text-foreground mb-2 font-nebulica">{project.title}</h2>
+                  <p className="text-muted-foreground mb-4 font-nebulica">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-zinc-800 text-zinc-300 rounded-full text-sm font-nebulica"
+                        className="px-3 py-1 bg-accent text-accent-foreground rounded-full text-sm font-nebulica"
                       >
                         {tag}
                       </span>

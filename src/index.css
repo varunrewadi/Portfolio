@@ -10,27 +10,75 @@
   font-display: swap;
 }
 
-:root {
-  --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 240 10% 3.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 240 10% 3.9%;
-  --primary: 240 5.9% 10%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 240 5.9% 10%;
-  --radius: 0.5rem;
+@layer base {
+  :root {
+    --background: 30 3% 9%; /* #302F2E */
+    --foreground: 30 3% 19%; /* Original text color */
+    --card: 35 33% 94%; /* #F4EFE6 */
+    --card-foreground: 30 3% 19%;
+    --popover: 35 33% 94%;
+    --popover-foreground: 30 3% 19%;
+    --primary: 30 3% 80%; /* #CECCC8 */
+    --primary-foreground: 30 3% 19%;
+    --secondary: 35 33% 94%;
+    --secondary-foreground: 30 3% 19%;
+    --muted: 35 33% 94%;
+    --muted-foreground: 30 3% 39%;
+    --accent: 30 3% 80%; /* #CECCC8 */
+    --accent-foreground: 30 3% 19%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 35 33% 94%;
+    --border: 30 3% 19%;
+    --input: 30 3% 80%; /* #CECCC8 */
+    --ring: 30 3% 19%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%; /* black */
+    --foreground: 0 0% 98%;
+    --card: 0 0% 9%; /* 181818 */
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 9%; /* 181818 */
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 27%; /* 454545 */
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border/20;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Add border to accent elements in light mode */
+:root .bg-accent {
+  @apply border border-border;
+}
+
+/* Primary button styles */
+:root .bg-primary {
+  @apply border border-border shadow-md;
+}
+
+/* Hover effect for primary button */
+:root .bg-primary:hover {
+  @apply bg-accent;
 }
 
 html,
@@ -40,13 +88,88 @@ body {
   font-family: 'Nebulica', system-ui, sans-serif;
 }
 
-body {
-  @apply bg-background text-foreground;
+@keyframes float-slow {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(10px, 10px) rotate(5deg);
+  }
+  50% {
+    transform: translate(0, 20px) rotate(0deg);
+  }
+  75% {
+    transform: translate(-10px, 10px) rotate(-5deg);
+  }
 }
 
-@layer base {
-  * {
-    @apply border-border/20;
+@keyframes float-medium {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-15px, 15px) rotate(-5deg);
+  }
+  50% {
+    transform: translate(0, 30px) rotate(0deg);
+  }
+  75% {
+    transform: translate(15px, 15px) rotate(5deg);
+  }
+}
+
+@keyframes float-fast {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(20px, 20px) rotate(10deg);
+  }
+  50% {
+    transform: translate(0, 40px) rotate(0deg);
+  }
+  75% {
+    transform: translate(-20px, 20px) rotate(-10deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 6s ease-in-out infinite;
+}
+
+@layer utilities {
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+  
+  .animate-float-medium {
+    animation: float-medium 6s ease-in-out infinite;
+  }
+  
+  .animate-float-fast {
+    animation: float-fast 4s ease-in-out infinite;
   }
 }
 
