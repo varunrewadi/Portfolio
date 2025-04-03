@@ -76,7 +76,9 @@ export default function Home() {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl" />
           <div className="relative z-10">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-4 font-nebulica">Hi, I&apos;m VARUN-</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3 md:mb-4 font-nebulica">
+              Hi, I&apos;m <br className="md:hidden" />VARUN REWADI-
+            </h1>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground font-nebulica">
               a web designer and developer, studying in MPSTME Mumbai.
             </p>
