@@ -2,7 +2,6 @@ import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Moon, Sun, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import { cn } from "@/lib/utils";
 import Marquee from "react-fast-marquee";
 import {
   FaHtml5,
@@ -23,30 +22,8 @@ import {
   SiPostgresql,
 } from "react-icons/si";
 
-export default function Home() {
-  const [isDark, setIsDark] = useState(() => {
-    // Check localStorage first, then system preference
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      return savedTheme === "dark";
-    }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  });
-
-  useEffect(() => {
-    // Update document class and localStorage when theme changes
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [isDark]);
-
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-  };
+export default function Home({ isDark, setIsDark }) {
+  const toggleTheme = () => setIsDark(!isDark);
 
   const containerVariants = {
     hidden: { opacity: 0 },
