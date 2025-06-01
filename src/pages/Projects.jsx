@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
 import { useEffect } from "react";
-import { FaNpm } from "react-icons/fa";
+import { FaNpm, FaReact } from "react-icons/fa";
 
 const projects = [
   {
@@ -46,6 +46,14 @@ const projects = [
     tags: ["JavaScript", "Node.js", "NPM", "CLI Resume"],
     link: "https://www.npmjs.com/package/resume-varun",
     github: "https://github.com/VarunRewadi/npm-resume",
+  },
+  {
+    title: "React Practice Projects",
+    description:
+      "A collection of React beginner projects to practice and enhance React skills. Includes various small applications demonstrating core React concepts.",
+    image: <FaReact />,
+    tags: ["ReactJs", "Vite", "TailwindCSS", "Web Development"],
+    github: "https://github.com/VarunRewadi/React-Practice-Projects",
   },
 ];
 
