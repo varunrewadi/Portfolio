@@ -1,4 +1,3 @@
-import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Moon, Sun, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
