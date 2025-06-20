@@ -100,17 +100,20 @@ export default function Home({ isDark, setIsDark }) {
           className="bg-card rounded-3xl p-6 md:p-8 col-span-6 md:col-span-3 lg:col-span-3 row-span-2 md:row-span-4 order-2 md:order-3 relative group cursor-pointer transition-all duration-300 hover:bg-white/60 dark:hover:bg-accent/50 hover:border hover:border-white dark:hover:border-border"
           variants={itemVariants}
         >
-          <div className="relative z-10 flex flex-col h-full">
+          <Link
+            to="/projects"
+            className="relative z-10 flex flex-col h-full w-full "
+          >
             <span className="text-muted-foreground uppercase text-sm font-medium mb-2 font-nebulica">
               PROJECTS
             </span>
-            <h2 className="text-xl lg:text-3xl text-foreground font-semibold mb-auto font-nebulica">
+            <h2 className="text-xl text-foreground font-semibold mb-5 font-nebulica">
               Check out what I have been building recently!
             </h2>
-            <div className="flex justify-end mt-5 ">
+            <div className="flex justify-end items-end h-full">
               <ArrowUpRight className="w-5 h-5 border-4 border-white bg-accent rounded-xl text-foreground " />
             </div>
-          </div>
+          </Link>
         </motion.div>
 
         {/* Avatar Section */}
@@ -132,7 +135,10 @@ export default function Home({ isDark, setIsDark }) {
           className="bg-card rounded-3xl p-6 md:p-8 col-span-6 md:col-span-6 lg:col-span-6 row-span-2 order-5 relative group cursor-pointer transition-all duration-300 hover:bg-white/60 dark:hover:bg-accent/50 hover:border hover:border-white dark:hover:border-border"
           variants={itemVariants}
         >
-          <div className="relative z-10 flex flex-col h-full">
+          <Link
+            to="/about"
+            className="relative z-10 flex flex-col h-full w-full focus:outline-none"
+          >
             <span className="text-muted-foreground uppercase text-sm font-medium mb-2 font-nebulica">
               ABOUT
             </span>
@@ -142,7 +148,7 @@ export default function Home({ isDark, setIsDark }) {
             <div className="flex justify-end ">
               <ArrowUpRight className="w-5 h-5 border-4 border-white bg-accent rounded-xl text-foreground " />
             </div>
-          </div>
+          </Link>
         </motion.div>
 
         {/* Social Links Section */}
