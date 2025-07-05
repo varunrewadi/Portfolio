@@ -74,7 +74,7 @@ export default function Home({ isDark, setIsDark }) {
                 href="https://engineering.nmims.edu/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-base font-bold hover:underline hover:text-foreground"
+                className="text-base font-bold underline hover:text-foreground"
               >
                 @MPSTME-Mumbai.
               </a>
