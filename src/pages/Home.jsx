@@ -69,7 +69,15 @@ export default function Home({ isDark, setIsDark }) {
               VARUN REWADI -
             </h1>
             <p className="text-base text-muted-foreground font-nebulica">
-              a web designer and developer, studying in MPSTME Mumbai.
+              a web designer and developer, studying{" "}
+              <a
+                href="https://engineering.nmims.edu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-base font-bold hover:underline hover:text-foreground"
+              >
+                @MPSTME-Mumbai.
+              </a>
             </p>
           </div>
         </motion.div>
