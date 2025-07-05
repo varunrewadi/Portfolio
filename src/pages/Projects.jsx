@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, Github, ExternalLink } from "lucide-react";
 import { useEffect } from "react";
 import { FaNpm, FaReact } from "react-icons/fa";
+import { SiUipath } from "react-icons/si";
 
 const projects = [
   {
@@ -10,15 +11,7 @@ const projects = [
     description:
       "A travel booking website with user-friendly interface, featuring two-factor authentication and real-time price updates. Built with PostgreSQL for secure database management and travel booking APIs.",
     image: "/travix.png",
-    tags: [
-      "EJS",
-      "TailwindCSS",
-      "Git",
-      "Github",
-      "Google-OAuth",
-      "PostgreSQL",
-      "Supabase",
-    ],
+    tags: ["EJS", "TailwindCSS", "Google-OAuth", "PostgreSQL", "Supabase"],
     link: "https://travix.vercel.app/",
     github: "https://github.com/VarunRewadi/travix",
   },
@@ -33,7 +26,7 @@ const projects = [
   {
     title: "IETE Website",
     description:
-      "Official website for IETE-SF MPSTME built using no-code tools. Features an intuitive, responsive design focused on organization representation and user experience.",
+      "A responsive website for IETE-SF MPSTME built using no-code platforms. Showcases organizational information with smooth navigation, mobile support, and an engaging user interface.",
     image: "/iete.png",
     tags: ["Figma", "Wix/Wix-Studio", "UI/UX Design"],
     link: "https://ietempstme.com",
@@ -48,9 +41,17 @@ const projects = [
     github: "https://github.com/VarunRewadi/npm-resume",
   },
   {
+    title: "Itenary Planner UiPath Bot",
+    description:
+      "Created a UiPath automation bot that generates personalized travel plans. It collects user input, fetches durations and images via Google Maps API, and emails a polished Word itinerary.",
+    image: <SiUipath />,
+    tags: ["UiPath Studio", "Google Maps API", "Word Automation", "SMTP"],
+    github: "https://github.com/VarunRewadi/React-Practice-Projects",
+  },
+  {
     title: "React Practice Projects",
     description:
-      "A collection of React beginner projects to practice and enhance React skills. Includes various small applications demonstrating core React concepts.",
+      "Built a set of beginner-friendly React projects to practice key concepts. Each app focuses on fundamentals like state, props, routing, and component design.",
     image: <FaReact />,
     tags: ["ReactJs", "Vite", "TailwindCSS", "Web Development"],
     github: "https://github.com/VarunRewadi/React-Practice-Projects",

@@ -108,7 +108,7 @@ export default function Home({ isDark, setIsDark }) {
               PROJECTS
             </span>
             <h2 className="text-xl text-foreground font-semibold mb-5 font-nebulica">
-              Check out what I have been building recently!
+              Check out the cool stuff I have been building recently!
             </h2>
             <div className="flex justify-end items-end h-full">
               <ArrowUpRight className="w-5 h-5 border-4 border-white bg-accent rounded-xl text-foreground " />
