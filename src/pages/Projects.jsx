@@ -13,7 +13,7 @@ const projects = [
     image: "/travix.png",
     tags: ["EJS", "TailwindCSS", "Google-OAuth", "PostgreSQL", "Supabase"],
     link: "https://travix.vercel.app/",
-    github: "https://github.com/VarunRewadi/travix",
+    github: "https://github.com/varunrewadi/travix",
   },
   {
     title: "Image Processing Application",
@@ -21,7 +21,7 @@ const projects = [
       "A GUI-based application for image editing with features like grayscale, blur, and pencil sketch filters. Includes real-time effects and image capture functionality using OpenCV and Tkinter.",
     image: "/image-processing.png",
     tags: ["Python", "OpenCV", "Tkinter", "PIL", "NumPy", "GUI Programming"],
-    github: "https://github.com/VarunRewadi/image-processing",
+    github: "https://github.com/varunrewadi/image-processing",
   },
   {
     title: "IETE Website",
@@ -38,15 +38,16 @@ const projects = [
     image: <FaNpm />,
     tags: ["JavaScript", "Node.js", "NPM", "CLI Resume"],
     link: "https://www.npmjs.com/package/resume-varun",
-    github: "https://github.com/VarunRewadi/npm-resume",
+    github: "https://github.com/varunrewadi/npm-resume",
   },
   {
-    title: "Itenary Planner UiPath Bot",
+    title: "Itinerary Planner UiPath Bot",
     description:
       "Created a UiPath automation bot that generates personalized travel plans. It collects user input, fetches durations and images via Google Maps API, and emails a polished Word itinerary.",
     image: <SiUipath />,
     tags: ["UiPath Studio", "Google Maps API", "Word Automation", "SMTP"],
-    github: "https://github.com/VarunRewadi/React-Practice-Projects",
+    github:
+      "https://github.com/varunrewadi/ui-path-itinerary-planner-automation",
   },
   {
     title: "React Practice Projects",
@@ -54,7 +55,7 @@ const projects = [
       "Built a set of beginner-friendly React projects to practice key concepts. Each app focuses on fundamentals like state, props, routing, and component design.",
     image: <FaReact />,
     tags: ["ReactJs", "Vite", "TailwindCSS", "Web Development"],
-    github: "https://github.com/VarunRewadi/React-Practice-Projects",
+    github: "https://github.com/varunrewadi/React-Practice-Projects",
   },
 ];
 
