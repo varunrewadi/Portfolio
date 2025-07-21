@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Moon, Sun, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -25,6 +26,40 @@ import {
 
 export default function Home({ isDark, setIsDark }) {
   const toggleTheme = () => setIsDark(!isDark);
+  // 👇 ADD STATE FOR THE FORM
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState("");
+
+  // 👇 ADD THE SUBMIT HANDLER FUNCTION
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setMessage("");
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong.");
+      }
+
+      setMessage(data.message);
+      setEmail(""); // Clear input on success
+    } catch (error) {
+      setMessage(error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -205,24 +240,40 @@ export default function Home({ isDark, setIsDark }) {
 
         {/* Newsletter Section */}
         <motion.div
-          className="bg-card rounded-3xl p-6 md:p-8 col-span-12 md:col-span-6 lg:col-span-6 row-span-2 order-8 relative group cursor-pointer transition-all duration-300 hover:bg-white/60 dark:hover:bg-accent/50 hover:border hover:border-white dark:hover:border-border"
+          className="bg-card rounded-3xl p-6 md:p-8 col-span-12 md:col-span-6 lg:col-span-6 row-span-2 order-8 relative"
           variants={itemVariants}
         >
           <div className="relative z-10">
-            <h2 className="text-xl text-foreground font-semibold mb-5 font-nebulica">
+            <h2 className="text-xl text-foreground font-semibold mb-3 font-nebulica">
               Get direct updates straight into your inbox for free!
             </h2>
-            <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
+            <form
+              onSubmit={handleSubscribe}
+              className="flex flex-col sm:flex-row gap-2 md:gap-3"
+            >
               <input
                 type="email"
                 placeholder="Your email address"
                 className="flex-1 min-w-0 bg-accent border border-border rounded-full px-4 md:px-5 lg:px-6 py-2 md:py-3 text-sm  text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 font-nebulica"
                 aria-label="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={isSubmitting}
+                required
               />
-              <button className="shrink-0 bg-accent hover:bg-accent/80 text-muted-foreground rounded-full px-4 md:px-5 lg:px-6 py-2 md:py-3 text-sm  transition-colors font-nebulica whitespace-nowrap">
-                Subscribe
+              <button
+                type="submit"
+                className="shrink-0 bg-accent hover:bg-accent/80 text-muted-foreground rounded-full px-4 md:px-5 lg:px-6 py-2 md:py-3 text-sm transition-colors font-nebulica whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Subscribing..." : "Subscribe"}
               </button>
-            </div>
+            </form>
+            {message && (
+              <p className="text-sm mt-3 font-nebulica text-foreground">
+                {message}
+              </p>
+            )}
           </div>
         </motion.div>
 
