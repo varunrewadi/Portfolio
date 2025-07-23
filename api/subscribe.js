@@ -12,7 +12,7 @@ export default async function handler(req, res) {
     }
 
     const CONVERTKIT_FORM_ID = process.env.CONVERTKIT_FORM_ID;
-    const CONVERTKIT_API_KEY = process.env.CONVERTKIT_API_KEY;
+    const CONVERTKIT_API_KEY = process.env.CONVERTKIT_API_KEY; // This will now hold your API Secret
     const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
     // Step 1: Add to ConvertKit
