@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Moon, Sun, Mail } from "lucide-react";
+import { ArrowUpRight, Moon, Sun, Mail, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
 import {
@@ -26,40 +25,6 @@ import {
 
 export default function Home({ isDark, setIsDark }) {
   const toggleTheme = () => setIsDark(!isDark);
-  // 👇 ADD STATE FOR THE FORM
-  const [email, setEmail] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState("");
-
-  // 👇 ADD THE SUBMIT HANDLER FUNCTION
-  const handleSubscribe = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setMessage("");
-
-    try {
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Something went wrong.");
-      }
-
-      setMessage(data.message);
-      setEmail(""); // Clear input on success
-    } catch (error) {
-      setMessage(error.message);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -238,43 +203,33 @@ export default function Home({ isDark, setIsDark }) {
           </div>
         </motion.div>
 
-        {/* Newsletter Section */}
+        {/* Blogs Section */}
         <motion.div
-          className="bg-card rounded-3xl p-6 md:p-8 col-span-12 md:col-span-6 lg:col-span-6 row-span-2 order-8 relative"
+          className="bg-card rounded-3xl p-6 md:p-8 col-span-12 md:col-span-6 lg:col-span-6 row-span-2 order-8 relative group cursor-pointer transition-all duration-300 hover:bg-white/60 dark:hover:bg-accent/50 hover:border hover:border-white dark:hover:border-border"
           variants={itemVariants}
         >
-          <div className="relative z-10">
-            <h2 className="text-xl text-foreground font-semibold mb-3 font-nebulica">
-              Get direct updates straight into your inbox for free!
-            </h2>
-            <form
-              onSubmit={handleSubscribe}
-              className="flex flex-col sm:flex-row gap-2 md:gap-3"
-            >
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="flex-1 min-w-0 bg-accent border border-border rounded-full px-4 md:px-5 lg:px-6 py-2 md:py-3 text-sm  text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 font-nebulica"
-                aria-label="Email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={isSubmitting}
-                required
-              />
-              <button
-                type="submit"
-                className="shrink-0 bg-accent hover:bg-accent/80 text-muted-foreground rounded-full px-4 md:px-5 lg:px-6 py-2 md:py-3 text-sm transition-colors font-nebulica whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Subscribing..." : "Subscribe"}
-              </button>
-            </form>
-            {message && (
-              <p className="text-sm mt-3 font-nebulica text-foreground">
-                {message}
-              </p>
-            )}
-          </div>
+          <Link to="/blogs" className="block h-full">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl" />
+            <div className="relative z-10 h-full flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <BookOpen className="w-8 h-8 text-foreground" />
+                  <h2 className="text-xl text-foreground font-semibold font-nebulica">
+                    Blog
+                  </h2>
+                </div>
+                <p className="text-muted-foreground mb-4 font-nebulica">
+                  Explore my thoughts on web development, design, and
+                  technology. From tutorials to insights, discover practical
+                  knowledge and industry trends.
+                </p>
+              </div>
+              <div className="flex items-center text-foreground group-hover:text-accent transition-colors">
+                <span className="font-medium font-nebulica">Read my blog</span>
+                <ArrowUpRight className="w-5 h-5 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
         </motion.div>
 
         {/* Tech Stack Section */}

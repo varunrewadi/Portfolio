@@ -9,6 +9,7 @@ A modern portfolio website built with React, Tailwind CSS, and Framer Motion.
 - Smooth animations
 - Project showcase
 - About section
+- Blog section
 - Contact information
 - Social media links
 
@@ -30,12 +31,14 @@ A modern portfolio website built with React, Tailwind CSS, and Framer Motion.
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/username/portfolio.git
 cd portfolio
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -43,6 +46,7 @@ yarn install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 # or
@@ -68,6 +72,7 @@ The build files will be in the `dist` directory.
 ```
 src/
   ├── components/     # Reusable components
+  ├── data/          # Data files (blogs, projects, etc.)
   ├── pages/         # Page components
   ├── lib/           # Utility functions
   ├── App.jsx        # Main App component
@@ -75,13 +80,36 @@ src/
   └── index.css      # Global styles
 ```
 
+## Data Organization
+
+The project uses separate data files to keep the code organized and maintainable:
+
+- `src/data/blogs.js` - Contains all blog post data and helper functions
+- `src/data/projects.js` - Contains all project data and helper functions
+
+### Helper Functions Available
+
+**Blogs (`src/data/blogs.js`):**
+- `getFeaturedBlogs()` - Get featured blog posts
+- `getRegularBlogs()` - Get non-featured blog posts
+- `getBlogsByTag(tag)` - Filter blogs by tag
+- `searchBlogs(query)` - Search blogs by title, description, or tags
+
+**Projects (`src/data/projects.js`):**
+- `getProjectsByTag(tag)` - Filter projects by tag
+- `getProjectsWithLinks()` - Get projects with live links
+- `getProjectsWithGithub()` - Get projects with GitHub repositories
+- `searchProjects(query)` - Search projects by title, description, or tags
+- `getFeaturedProjects()` - Get featured projects (first 3)
+
 ## Customization
 
-1. Update the project information in `src/pages/Projects.jsx`
+1. Update the project information in `src/data/projects.js`
 2. Modify the about section in `src/pages/About.jsx`
-3. Update social media links in `src/pages/Home.jsx`
-4. Customize the theme colors in `tailwind.config.js`
+3. Update blog content in `src/data/blogs.js`
+4. Update social media links in `src/pages/Home.jsx`
+5. Customize the theme colors in `tailwind.config.js`
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

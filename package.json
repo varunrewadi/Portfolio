@@ -17,7 +17,6 @@
     "react-fast-marquee": "^1.6.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^6.20.0",
-    "resend": "^4.7.0",
     "tech-stack-icons": "^2.1.0"
   },
   "devDependencies": {

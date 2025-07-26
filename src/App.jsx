@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
+import Blogs from "./pages/Blogs";
 import "./index.css";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -33,6 +34,7 @@ function App() {
         />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/blogs" element={<Blogs />} />
       </Routes>
       <Analytics />
     </Router>
