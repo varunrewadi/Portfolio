@@ -1,63 +1,13 @@
 export const blogs = [
   {
-    title: "Building a Modern Portfolio with React and Framer Motion",
+    title: "Exploring AI Automation Tools",
     description:
-      "A deep dive into creating smooth animations and responsive design patterns for modern web portfolios.",
-    date: "March 15, 2024",
+      "An in-depth breakdown of 4 powerful AI automation tools, highlighting how each is revolutionizing productivity, streamlining workflows, and making everyday tasks easier for users across industries.",
+    date: "August 29, 2025",
     readTime: "5 min read",
-    tags: ["React", "Framer Motion", "Web Development"],
-    link: "#",
+    tags: ["AI", "Automation", "Productivity", "Tools"],
+    link: "https://medium.com/@varunrewadi.vr005/exploring-ai-automation-tools-116e5c431f7c",
     featured: true,
-  },
-  {
-    title: "The Future of Web Development: Trends to Watch in 2024",
-    description:
-      "Exploring emerging technologies and frameworks that are shaping the future of web development.",
-    date: "February 28, 2024",
-    readTime: "8 min read",
-    tags: ["Web Development", "Technology", "Trends"],
-    link: "#",
-    featured: false,
-  },
-  {
-    title: "Optimizing React Performance: Best Practices and Techniques",
-    description:
-      "Learn how to improve your React application's performance with proven optimization strategies.",
-    date: "February 15, 2024",
-    readTime: "6 min read",
-    tags: ["React", "Performance", "JavaScript"],
-    link: "#",
-    featured: false,
-  },
-  {
-    title: "UI/UX Design Principles for Better User Experience",
-    description:
-      "Understanding the fundamental principles that make interfaces intuitive and user-friendly.",
-    date: "January 30, 2024",
-    readTime: "7 min read",
-    tags: ["UI/UX", "Design", "User Experience"],
-    link: "#",
-    featured: false,
-  },
-  {
-    title: "Getting Started with TypeScript in React Projects",
-    description:
-      "A beginner's guide to implementing TypeScript in React applications for better code quality.",
-    date: "January 15, 2024",
-    readTime: "4 min read",
-    tags: ["TypeScript", "React", "JavaScript"],
-    link: "#",
-    featured: false,
-  },
-  {
-    title: "Deploying React Apps: From Development to Production",
-    description:
-      "Step-by-step guide to deploying React applications with modern deployment strategies.",
-    date: "January 5, 2024",
-    readTime: "9 min read",
-    tags: ["Deployment", "React", "DevOps"],
-    link: "#",
-    featured: false,
   },
 ];
 

@@ -224,9 +224,8 @@ export default function Home({ isDark, setIsDark }) {
                   knowledge and industry trends.
                 </p>
               </div>
-              <div className="flex items-center text-foreground group-hover:text-accent transition-colors">
-                <span className="font-medium font-nebulica">Read my blog</span>
-                <ArrowUpRight className="w-5 h-5 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <div className="flex justify-end items-end h-full">
+                <ArrowUpRight className="w-5 h-5 border-4 border-white bg-accent rounded-xl text-foreground " />
               </div>
             </div>
           </Link>
