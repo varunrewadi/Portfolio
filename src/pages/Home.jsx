@@ -238,7 +238,7 @@ export default function Home({ isDark, setIsDark }) {
         >
           <div className="relative z-10 flex flex-col h-full">
             <span className="text-muted-foreground uppercase text-xs mb-2 font-medium  block font-nebulica">
-              Stack I use
+              Tech I know
             </span>
             <div className="flex-1 flex flex-col justify-between md:gap-2 ">
               <div className="h-1/2">
